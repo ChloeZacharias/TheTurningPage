@@ -1,15 +1,20 @@
-import { useState } from "react";
-import { books, Book } from "@/data/books";
-import BookCard from "./BookCard";
-import BookModal from "./BookModal";
+import React, { useState } from "react";
+import { books } from "../data/books.js";
+import BookCard from "./BookCard.jsx";
+import BookModal from "./BookModal.jsx";
 
 const BookGrid = () => {
-  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  const [selectedBook, setSelectedBook] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const handleBookClick = (book: Book) => {
+  const handleBookClick = (book) => {
     setSelectedBook(book);
     setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setSelectedBook(null);
   };
 
   // Sort books to show currently reading first
@@ -20,21 +25,19 @@ const BookGrid = () => {
   });
 
   return (
-    <section id="books" className="py-24 px-6 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+    <section id="books" className="book-grid-section">
+      <div className="book-grid-section__container">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-foreground">
-            Our Book Collection
-          </h2>
-          <p className="mt-4 text-muted-foreground font-sans max-w-xl mx-auto">
+        <div className="book-grid-section__header">
+          <h2 className="book-grid-section__title">Our Book Collection</h2>
+          <p className="book-grid-section__description">
             Browse through our reading list. Click on any book to see schedules,
             discussion questions, and meeting details.
           </p>
         </div>
 
         {/* Book Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 sm:gap-8">
+        <div className="book-grid-section__grid">
           {sortedBooks.map((book, index) => (
             <BookCard
               key={book.id}
@@ -47,11 +50,12 @@ const BookGrid = () => {
       </div>
 
       {/* Book Modal */}
-      <BookModal
-        book={selectedBook}
-        open={modalOpen}
-        onOpenChange={setModalOpen}
-      />
+      {modalOpen && selectedBook && (
+        <BookModal
+          book={selectedBook}
+          onClose={handleCloseModal}
+        />
+      )}
     </section>
   );
 };
