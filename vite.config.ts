@@ -13,8 +13,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  root: "src", // ensure Vite doesn’t write to root
   build: {
-    outDir: "dist", // Must be 'dist', not root
+    outDir: "../dist", // relative to src/, final build goes to dist
     emptyOutDir: true,
   },
   base: "/TheTurningPage/",
