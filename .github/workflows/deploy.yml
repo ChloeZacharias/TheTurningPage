@@ -25,11 +25,11 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GH_PAT }} # Must use your PAT
-          publish_dir: ./dist # Vite build output
-          destination_repo: ChloeZacharias/TheTurningPage # Full repo name
-          publish_branch: gh-pages # Target branch
+          personal_token: ${{ secrets.GH_PAT }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          external_repository: ChloeZacharias/TheTurningPage
+          force_orphan: true
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
-          force_orphan: true
           commit_message: "Deploy via GitHub Actions"
