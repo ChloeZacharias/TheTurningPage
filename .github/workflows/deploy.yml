@@ -7,32 +7,29 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # 1. Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # 3. Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # 4. Build the project
       - name: Build project
         run: npm run build
 
-      # 5. Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GH_PAT }} # Use your PAT
-          publish_dir: ./dist # Vite output folder
-          force_orphan: true # Create branch from scratch
-          user_name: "github-actions[bot]" # Git commit author
-          user_email: "github-actions[bot]@users.noreply.github.com"
+          personal_token: ${{ secrets.GH_PAT }} # Must use your PAT
+          publish_dir: ./dist # Vite build output
+          destination_repo: ChloeZacharias/TheTurningPage # Full repo name
+          publish_branch: gh-pages # Target branch
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
+          force_orphan: true
+          commit_message: "Deploy via GitHub Actions"
