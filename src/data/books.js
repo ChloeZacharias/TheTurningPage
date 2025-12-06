@@ -1,47 +1,105 @@
-import midnightLibraryCover from "@/assets/book-midnight-library.jpg";
-import circeCover from "@/assets/book-circe.jpg";
-import projectHailMaryCover from "@/assets/book-project-hail-mary.jpg";
-import ceruleanSeaCover from "@/assets/book-cerulean-sea.jpg";
-import klaraSunCover from "@/assets/book-klara-sun.jpg";
-import pachinkoCover from "@/assets/book-pachinko.jpg";
+import everyoneInMyFamilyCover from "@/assets/everyone-in-my-family.png";
 
 export const familyTreeData = {
-  generations: [
+  name: "The Cunningham Family",
+  children: [
     {
-      label: "Grandparents",
-      members: [
-        { name: "Michael Cunningham", relation: "Grandfather", deceased: true, info: "Patriarch of the family. Died before the reunion." },
-        { name: "Audrey Cunningham", relation: "Grandmother", deceased: false, info: "Matriarch who organized the fateful reunion." }
-      ]
+      // Top parent group (Robert + Audrey + Marcelo)
+      name: "Parent Group",
+      relation: "Parents",
+      isGroup: true, // helps styling if needed
+      children: [
+        // Parents shown horizontally
+        {
+          name: "Robert Cunningham",
+          relation: "Father",
+          deceased: true,
+          info: "Killed a police officer then was killed",
+        },
+        {
+          name: "Audrey Cunningham",
+          relation: "Mother",
+          deceased: false,
+          info: "Married Marcelo after Robert died.\nScar above her right eye.\nBlames Ernest for tensions in the family.",
+        },
+        {
+          name: "Marcelo Garcia",
+          relation: "Stepfather",
+          deceased: false,
+          info: "Lawyer.\nDefended Michael at his murder trial.\nHeavy-set bald man.\nWears a late 1980s platinum Presidential Rolex.",
+        },
+      ],
+
+      // Children of this unified parent group
+      descendants: [
+        {
+          name: "Ernest Cunningham",
+          relation: "Son",
+          deceased: false,
+          info: "Mystery author. Our protagonist piecing together the truth. Separated from Erin",
+          children: [
+            {
+              name: "Erin Cunningham",
+              relation: "Ex-wife",
+              deceased: false,
+              info: "TBD",
+            },
+          ],
+        },
+
+        {
+          name: "Michael Cunningham",
+          relation: "Son",
+          deceased: false,
+          info: "Jailed for three years after being convicted of murder. Lucy's ex-husband",
+          children: [
+            {
+              name: "Lucy Cunningham",
+              relation: "Ex-wife",
+              deceased: false,
+              info: "Preened blonde hair cut into a bob. Runs independent online business. Tries to sell you anything.",
+            },
+          ],
+        },
+
+        {
+          name: "Sofia Garcia-Cunningham",
+          relation: "Stepsister",
+          deceased: false,
+          info: "Daughter of Marcelo. Recently suspended from her job as a surgeon",
+        },
+      ],
     },
+
+    // Aunt + Uncle group (Katherine + Andrew)
     {
-      label: "Parents & Their Siblings",
-      members: [
-        { name: "Robert (Bob)", relation: "Ernest's Uncle", deceased: true, info: "Police officer. Michael's eldest son." },
-        { name: "Katherine (Katie)", relation: "Ernest's Aunt", deceased: false, info: "Bob's wife. Former athlete." },
-        { name: "Frank", relation: "Ernest's Father", deceased: true, info: "Second son. Ernest's biological father." },
-        { name: "Sofia", relation: "Ernest's Stepmother", deceased: false, info: "Frank's second wife. A mystery writer herself." },
-        { name: "Lucy", relation: "Ernest's Aunt", deceased: false, info: "Michael's only daughter. Black sheep of the family." }
-      ]
+      name: "Aunt + Uncle Group",
+      relation: "Aunt & Uncle",
+      isGroup: true,
+      children: [
+        {
+          name: "Katherine Millot",
+          relation: "Aunt",
+          deceased: false,
+          info: "Has a slight limp after a car accident in her 20s.\nNon-drinker.\nHyper-organised.",
+        },
+        {
+          name: "Andrew Millot",
+          relation: "Uncle",
+          deceased: false,
+          info: "Self-proclaimed feminist.\nTries hard to bond with everyone.",
+        },
+      ],
+      descendants: [
+        {
+          name: "Amy Millot",
+          relation: "Cousin",
+          deceased: false,
+          info: "Daughter of Katherine and Andrew.\nIs not attending the family reunion.",
+        },
+      ],
     },
-    {
-      label: "Ernest's Generation",
-      members: [
-        { name: "Ernest", relation: "Narrator", deceased: false, info: "Mystery author. Our protagonist piecing together the truth." },
-        { name: "Michael Jr.", relation: "Cousin", deceased: false, info: "Bob and Katie's son. Named after grandfather." },
-        { name: "Amy", relation: "Half-sister", deceased: false, info: "Frank and Sofia's daughter. Ernest's half-sister." },
-        { name: "Jeremy", relation: "Cousin", deceased: true, info: "Lucy's son. The 'bad apple' of the family." }
-      ]
-    },
-    {
-      label: "Others",
-      members: [
-        { name: "Erin", relation: "Michael Jr.'s Wife", deceased: false, info: "Married into the family. A veterinarian." },
-        { name: "Marcelo", relation: "Amy's Partner", deceased: false, info: "Amy's longtime boyfriend attending the reunion." },
-        { name: "Andy", relation: "Victim", deceased: true, info: "A stranger found dead at the reunion. But who killed him?" }
-      ]
-    }
-  ]
+  ],
 };
 
 export const books = [
@@ -49,119 +107,54 @@ export const books = [
     id: "1",
     title: "Everyone in My Family Has Killed Someone",
     author: "Benjamin Stevenson",
-    coverUrl: "", // Will use placeholder
-    description: "Ernest Cunningham is not a typical mystery protagonist. He's a self-proclaimed mystery writer who knows all the rules of the genre—and he's about to break them all. At a family reunion at a remote ski resort, a body is discovered in the snow. But here's the catch: everyone in Ernest's family has killed someone. Now it's up to him to figure out which family member committed this particular murder, while the blizzard keeps everyone trapped together.",
+    coverUrl: everyoneInMyFamilyCover,
     currentlyReading: true,
-    meetingDate: "December 20, 2024",
-    meetingTime: "7:00 PM",
-    meetingLocation: "Community Center Room A",
+    meetingDate: "December 6, 2025",
+    meetingTime: "6:00 PM",
+    meetingLocation: "Living Room",
     hasFamilyTree: true,
     schedule: [
-      { week: 1, chapters: "Chapters 1-8", date: "Dec 1-7" },
-      { week: 2, chapters: "Chapters 9-16", date: "Dec 8-14" },
-      { week: 3, chapters: "Chapters 17-24", date: "Dec 15-21" },
-      { week: 4, chapters: "Chapters 25-End", date: "Dec 22-28" }
+      // WEEK 1
+      { week: 1, chapters: "Prologue + Ch. 1", date: "Dec 1" },
+      { week: 1, chapters: "Ch. 2–3", date: "Dec 2" },
+      { week: 1, chapters: "Ch. 4–5", date: "Dec 3" },
+      { week: 1, chapters: "Ch. 6–7", date: "Dec 4" },
+      { week: 1, chapters: "Ch. 8–10", date: "Dec 5" },
+      { week: 1, chapters: "Ch. 11–12", date: "Dec 6" },
+      { week: 1, chapters: "Ch. 13–14", date: "Dec 7" },
+
+      // WEEK 2
+      { week: 2, chapters: "Ch. 14.5–15", date: "Dec 8" },
+      { week: 2, chapters: "Ch. 16", date: "Dec 9" },
+      { week: 2, chapters: "Ch. 17", date: "Dec 10" },
+      { week: 2, chapters: "Ch. 18–19", date: "Dec 11" },
+      { week: 2, chapters: "Ch. 20", date: "Dec 12" },
+      { week: 2, chapters: "Ch. 21–22", date: "Dec 13" },
+      { week: 2, chapters: "Ch. 23–24", date: "Dec 14" },
+
+      // WEEK 3
+      { week: 3, chapters: "Ch. 25", date: "Dec 15" },
+      { week: 3, chapters: "Ch. 26", date: "Dec 16" },
+      { week: 3, chapters: "Ch. 27–27.5–28", date: "Dec 17" },
+      { week: 3, chapters: "Ch. 29–30", date: "Dec 18" },
+      { week: 3, chapters: "Ch. 31–32", date: "Dec 19" },
+      { week: 3, chapters: "Ch. 33", date: "Dec 20" },
+      { week: 3, chapters: "Ch. 34–35", date: "Dec 21" },
+
+      // WEEK 4
+      { week: 4, chapters: "Ch. 36–37", date: "Dec 28" },
+      { week: 4, chapters: "Ch. 38", date: "Dec 29" },
+      { week: 4, chapters: "Ch. 39", date: "Dec 30" },
+      { week: 4, chapters: "Ch. 40–41 + Epilogue", date: "Dec 31" },
     ],
     discussionQuestions: [
-      "How does the author's use of mystery genre 'rules' enhance or subvert your expectations?",
-      "What did you think of Ernest as a narrator? Did his knowledge of mystery conventions make him more or less reliable?",
-      "Which family member's 'kill' surprised you the most?",
-      "How does the isolated ski resort setting contribute to the tension?",
-      "Did you guess the killer before the reveal? What clues led you there?",
-      "How does the book explore themes of family loyalty versus moral responsibility?"
-    ]
+      "How do you feel about Ernest as a narrator so far? Do you trust him?",
+      "Which family member do you trust the most/least — and why?",
+      "What themes or patterns are emerging?",
+      "What predictions do you have for the midpoint of the book?",
+      "What clues or details feel “Chekhov’s gun”-ish?",
+    ],
+    rating: 0,
+    review: "The review will be updated once finished the book",
   },
-  {
-    id: "2",
-    title: "Circe",
-    author: "Madeline Miller",
-    coverUrl: circeCover,
-    description: "In the house of Helios, god of the sun and mightiest of the Titans, a daughter is born. But Circe is a strange child—not powerful, like her father, nor viciously alluring like her mother.",
-    currentlyReading: false,
-    schedule: [
-      { week: 1, chapters: "Chapters 1-8", date: "Jan 5-11" },
-      { week: 2, chapters: "Chapters 9-16", date: "Jan 12-18" },
-      { week: 3, chapters: "Chapters 17-24", date: "Jan 19-25" },
-      { week: 4, chapters: "Chapters 25-End", date: "Jan 26-Feb 1" }
-    ],
-    discussionQuestions: [
-      "How does Circe's character evolve throughout the novel?",
-      "What role does isolation play in Circe's development?",
-      "How does Miller reimagine the traditional portrayal of Circe from Greek mythology?"
-    ]
-  },
-  {
-    id: "3",
-    title: "Project Hail Mary",
-    author: "Andy Weir",
-    coverUrl: projectHailMaryCover,
-    description: "Ryland Grace is the sole survivor on a desperate, last-chance mission—and if he fails, humanity and the earth itself will perish. Except that right now, he doesn't know that.",
-    currentlyReading: false,
-    schedule: [
-      { week: 1, chapters: "Chapters 1-8", date: "Feb 2-8" },
-      { week: 2, chapters: "Chapters 9-16", date: "Feb 9-15" },
-      { week: 3, chapters: "Chapters 17-24", date: "Feb 16-22" },
-      { week: 4, chapters: "Chapters 25-End", date: "Feb 23-Mar 1" }
-    ],
-    discussionQuestions: [
-      "How does the memory loss narrative device affect your reading experience?",
-      "What does the novel say about the importance of scientific cooperation?",
-      "How does the relationship between Grace and Rocky develop?"
-    ]
-  },
-  {
-    id: "4",
-    title: "The House in the Cerulean Sea",
-    author: "TJ Klune",
-    coverUrl: ceruleanSeaCover,
-    description: "A magical island. A dangerous task. A story about the profound experience of discovering an unlikely family in an unexpected place.",
-    currentlyReading: false,
-    schedule: [
-      { week: 1, chapters: "Chapters 1-7", date: "Mar 2-8" },
-      { week: 2, chapters: "Chapters 8-14", date: "Mar 9-15" },
-      { week: 3, chapters: "Chapters 15-21", date: "Mar 16-22" },
-      { week: 4, chapters: "Chapters 22-End", date: "Mar 23-29" }
-    ],
-    discussionQuestions: [
-      "What real-world issues does the novel address through its fantasy setting?",
-      "How does Linus's character change throughout his time on the island?",
-      "What role does found family play in the narrative?"
-    ]
-  },
-  {
-    id: "5",
-    title: "Klara and the Sun",
-    author: "Kazuo Ishiguro",
-    coverUrl: klaraSunCover,
-    description: "From her place in the store, Klara, an Artificial Friend with outstanding observational qualities, watches carefully the behavior of those who come in to browse, and of those who pass on the street outside.",
-    currentlyReading: false,
-    schedule: [
-      { week: 1, chapters: "Part One - Two", date: "Apr 6-12" },
-      { week: 2, chapters: "Part Three - Four", date: "Apr 13-19" },
-      { week: 3, chapters: "Part Five - Six", date: "Apr 20-26" }
-    ],
-    discussionQuestions: [
-      "What does Klara's perspective reveal about human nature?",
-      "How does Ishiguro explore themes of love and sacrifice?",
-      "What ethical questions does the novel raise about artificial intelligence?"
-    ]
-  },
-  {
-    id: "6",
-    title: "Pachinko",
-    author: "Min Jin Lee",
-    coverUrl: pachinkoCover,
-    description: "Pachinko follows one Korean family through the generations, beginning in early 1900s Korea with Sunja, the prized daughter of a poor yet proud family.",
-    currentlyReading: false,
-    schedule: [
-      { week: 1, chapters: "Book One", date: "May 4-10" },
-      { week: 2, chapters: "Book Two", date: "May 11-17" },
-      { week: 3, chapters: "Book Three", date: "May 18-24" }
-    ],
-    discussionQuestions: [
-      "How does the concept of identity evolve across generations?",
-      "What role does the theme of belonging play in the novel?",
-      "How does Lee portray the experience of being an immigrant?"
-    ]
-  }
 ];

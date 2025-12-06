@@ -14,9 +14,9 @@ const Hero = () => {
       {/* Background decoration */}
       <div className="hero__background">
         <div className="hero__blob hero__blob--primary animate-float" />
-        <div 
-          className="hero__blob hero__blob--accent animate-float" 
-          style={{ animationDelay: "3s" }} 
+        <div
+          className="hero__blob hero__blob--accent animate-float"
+          style={{ animationDelay: "3s" }}
         />
         <div className="hero__blob hero__blob--center" />
       </div>
@@ -26,13 +26,13 @@ const Hero = () => {
         {/* Decorative element */}
         <div className="hero__decorative animate-fade-in">
           <div className="hero__line" />
-          <span className="hero__label">Est. 2024</span>
+          <span className="hero__label">Est. 2025</span>
           <div className="hero__line hero__line--reverse" />
         </div>
 
         {/* Main Title */}
-        <h1 
-          className="hero__title animate-fade-in" 
+        <h1
+          className="hero__title animate-fade-in"
           style={{ animationDelay: "200ms" }}
         >
           The Turning
@@ -40,17 +40,17 @@ const Hero = () => {
         </h1>
 
         {/* Subtitle */}
-        <p 
-          className="hero__subtitle animate-fade-in" 
+        <p
+          className="hero__subtitle animate-fade-in"
           style={{ animationDelay: "400ms" }}
         >
-          A community of readers exploring stories together. Join us as we discover
-          new worlds, one chapter at a time.
+          A community of readers exploring stories together. Join us as we
+          discover new worlds, one chapter at a time.
         </p>
 
         {/* Decorative books illustration */}
-        <div 
-          className="hero__books-illustration animate-fade-in" 
+        <div
+          className="hero__books-illustration animate-fade-in"
           style={{ animationDelay: "600ms" }}
         >
           {[...Array(5)].map((_, i) => (
@@ -73,7 +73,7 @@ const Hero = () => {
         className="hero__scroll-indicator animate-fade-in"
         style={{ animationDelay: "800ms" }}
       >
-        <span>Explore our collection</span>
+        <span>Explore our books</span>
         <ChevronDown className="animate-bounce" />
       </button>
     </section>

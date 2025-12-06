@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap");
 
 // Variables
 $color-background: hsl(40, 33%, 96%);
 $color-foreground: hsl(25, 30%, 15%);
 $color-card: hsl(40, 30%, 98%);
 $color-card-foreground: hsl(25, 30%, 15%);
-$color-primary: hsl(25, 70%, 45%);
+$color-primary: hsl(25, 70%, 36%);
 $color-primary-foreground: hsl(40, 30%, 98%);
 $color-secondary: hsl(35, 40%, 88%);
 $color-secondary-foreground: hsl(25, 30%, 20%);
@@ -18,8 +18,8 @@ $color-warm-glow: hsl(35, 80%, 60%);
 $color-espresso: hsl(25, 40%, 20%);
 $color-destructive: hsl(0, 84%, 60%);
 
-$font-serif: 'Cormorant Garamond', Georgia, serif;
-$font-sans: 'Inter', system-ui, sans-serif;
+$font-serif: "Cormorant Garamond", Georgia, serif;
+$font-sans: "Inter", system-ui, sans-serif;
 
 $radius: 0.75rem;
 
@@ -38,7 +38,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: $font-serif;
 }
 
@@ -52,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .book-shadow {
   box-shadow: 4px 4px 20px rgba($color-espresso, 0.15),
-              -2px 0 10px rgba($color-espresso, 0.05);
+    -2px 0 10px rgba($color-espresso, 0.05);
 }
 
 // Animations
@@ -68,7 +73,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -77,7 +83,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -165,10 +172,18 @@ h1, h2, h3, h4, h5, h6 {
   &__line {
     height: 1px;
     width: 3rem;
-    background: linear-gradient(to right, transparent, rgba($color-primary, 0.5));
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba($color-primary, 0.5)
+    );
 
     &--reverse {
-      background: linear-gradient(to left, transparent, rgba($color-primary, 0.5));
+      background: linear-gradient(
+        to left,
+        transparent,
+        rgba($color-primary, 0.5)
+      );
     }
   }
 
@@ -211,7 +226,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   &__book-spine {
-    background: linear-gradient(to bottom, rgba($color-primary, 0.3), rgba($color-accent, 0.3));
+    background: linear-gradient(
+      to bottom,
+      rgba($color-primary, 0.3),
+      rgba($color-accent, 0.3)
+    );
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
   }
@@ -219,7 +238,7 @@ h1, h2, h3, h4, h5, h6 {
   &__scroll-indicator {
     position: absolute;
     bottom: 3rem;
-    left: 50%;
+    left: 45%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
@@ -341,7 +360,12 @@ h1, h2, h3, h4, h5, h6 {
   &__placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom right, rgba($color-primary, 0.2), $color-secondary, rgba($color-accent, 0.2));
+    background: linear-gradient(
+      to bottom right,
+      rgba($color-primary, 0.2),
+      $color-secondary,
+      rgba($color-accent, 0.2)
+    );
     display: flex;
     align-items: center;
     justify-content: center;
@@ -370,7 +394,12 @@ h1, h2, h3, h4, h5, h6 {
   &__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba($color-foreground, 0.8), rgba($color-foreground, 0.2), transparent);
+    background: linear-gradient(
+      to top,
+      rgba($color-foreground, 0.8),
+      rgba($color-foreground, 0.2),
+      transparent
+    );
     opacity: 0;
     transition: opacity 0.5s ease;
     display: flex;
@@ -447,6 +476,7 @@ h1, h2, h3, h4, h5, h6 {
   overflow-y: auto;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   animation: fade-in 0.3s ease-out;
+  position: relative;
 
   &__header {
     padding: 1.5rem;
@@ -472,7 +502,12 @@ h1, h2, h3, h4, h5, h6 {
     &-placeholder {
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom right, rgba($color-primary, 0.2), $color-secondary, rgba($color-accent, 0.2));
+      background: linear-gradient(
+        to bottom right,
+        rgba($color-primary, 0.2),
+        $color-secondary,
+        rgba($color-accent, 0.2)
+      );
       display: flex;
       align-items: center;
       justify-content: center;
@@ -507,11 +542,41 @@ h1, h2, h3, h4, h5, h6 {
     font-style: italic;
     font-family: $font-sans;
   }
+  &__review-section {
+    margin-top: 1rem;
+
+    .modal__rating {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 0.5rem;
+
+      .modal__star {
+        font-size: 1.25rem;
+        color: rgba($color-muted-foreground, 0.5);
+        transition: color 0.2s ease;
+
+        &--filled {
+          color: rgb(213, 167, 1);
+        }
+      }
+    }
+
+    .modal__review-box {
+      background-color: rgba($color-muted, 0.2);
+      border-radius: $radius;
+      padding: 1rem;
+      font-family: $font-sans;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: $color-foreground;
+      white-space: pre-line; // preserves line breaks
+    }
+  }
 
   &__close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0.75rem;
+    right: 0.325rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -619,7 +684,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     &-week {
-      font-size: 0.75rem;
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: $color-muted-foreground;
@@ -627,10 +692,11 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     &-chapters {
-      font-weight: 600;
+      font-weight: 500;
       color: $color-foreground;
       margin-top: 0.25rem;
       font-family: $font-sans;
+      padding-left: 1.5rem;
     }
 
     &-date {
@@ -770,29 +836,39 @@ h1, h2, h3, h4, h5, h6 {
 
   &__grid {
     display: grid;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__partner {
+    margin-left: 1rem;
+  }
+
+  &__children {
+    display: flex;
     gap: 1rem;
+    justify-content: center;
   }
 
   &__generation {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column; // ⬅ forces parents above kids visually
+    align-items: center; // ⬅ keeps rows centered, easier to read
     gap: 0.75rem;
     padding: 0.5rem 0;
-    border-bottom: 1px dashed $color-border;
+    //border-bottom: 2px dashed $color-border;
 
     &:last-child {
       border-bottom: none;
     }
 
     &-label {
-      width: 100%;
-      text-align: center;
-      font-size: 0.75rem;
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: $color-muted-foreground;
       margin-bottom: 0.5rem;
+      text-align: center;
     }
   }
 
@@ -817,15 +893,15 @@ h1, h2, h3, h4, h5, h6 {
 
     &-name {
       font-family: $font-serif;
-      font-size: 0.9375rem;
+      font-size: 1.2rem;
       font-weight: 600;
       color: $color-foreground;
     }
 
     &-relation {
-      font-size: 0.75rem;
-      color: $color-muted-foreground;
-      margin-top: 0.25rem;
+      font-size: 0.85rem;
+      color: $color-primary;
+      margin-top: 0.1rem;
     }
 
     &-status {
@@ -840,6 +916,7 @@ h1, h2, h3, h4, h5, h6 {
       color: $color-muted-foreground;
       margin-top: 0.5rem;
       line-height: 1.4;
+      white-space: pre-line;
     }
   }
 }

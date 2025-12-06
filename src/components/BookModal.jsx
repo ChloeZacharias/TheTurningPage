@@ -1,5 +1,13 @@
 import React, { useEffect } from "react";
-import { X, Calendar, Clock, MapPin, BookOpen, MessageCircle, Users } from "lucide-react";
+import {
+  X,
+  Calendar,
+  Clock,
+  MapPin,
+  BookOpen,
+  MessageCircle,
+  Users,
+} from "lucide-react";
 import FamilyTree from "./FamilyTree.jsx";
 
 const BookModal = ({ book, onClose }) => {
@@ -54,8 +62,24 @@ const BookModal = ({ book, onClose }) => {
         </div>
 
         <div className="modal__content">
-          {/* Description */}
-          <p className="modal__description">{book.description}</p>
+          {/* --- Review & Rating Section --- */}
+          <div className="modal__review-section">
+            <div className="modal__rating">
+              {[...Array(5)].map((_, i) => (
+                <span
+                  key={i}
+                  className={`modal__star ${
+                    i < book.rating ? "modal__star--filled" : ""
+                  }`}
+                >
+                  ★
+                </span>
+              ))}
+            </div>
+            <div className="modal__review-box">
+              {book.review || "No review yet."}
+            </div>
+          </div>
 
           {/* Family Tree (for the murder mystery book) */}
           {book.hasFamilyTree && (
@@ -104,12 +128,25 @@ const BookModal = ({ book, onClose }) => {
               <BookOpen />
               Reading Schedule
             </h3>
+
             <div className="modal__schedule-grid">
-              {book.schedule.map((item) => (
-                <div key={item.week} className="modal__schedule-item">
-                  <p className="modal__schedule-item-week">Week {item.week}</p>
-                  <p className="modal__schedule-item-chapters">{item.chapters}</p>
-                  <p className="modal__schedule-item-date">{item.date}</p>
+              {Object.entries(
+                book.schedule.reduce((weeks, item) => {
+                  // Group items by week number
+                  if (!weeks[item.week]) weeks[item.week] = [];
+                  weeks[item.week].push(item);
+                  return weeks;
+                }, {})
+              ).map(([weekNumber, items]) => (
+                <div key={weekNumber} className="modal__schedule-item">
+                  <p className="modal__schedule-item-week">Week {weekNumber}</p>
+                  <ul className="modal__schedule-item-chapters">
+                    {items.map((item, idx) => (
+                      <li key={idx} style={{ marginBottom: "5px" }}>
+                        {item.date}: {item.chapters}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
@@ -119,7 +156,7 @@ const BookModal = ({ book, onClose }) => {
           <div className="modal__section">
             <h3 className="modal__section-title">
               <MessageCircle />
-              Discussion Questions
+              Discussion Questions For Next Meeting
             </h3>
             <ul className="modal__questions">
               {book.discussionQuestions.map((question, index) => (
