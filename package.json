@@ -10,7 +10,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist -f"
+    "deploy": "git checkout gh-pages && git --work-tree=dist add --all && git --work-tree=dist commit -m 'Deploy site' && git push origin gh-pages --force && git checkout -"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
